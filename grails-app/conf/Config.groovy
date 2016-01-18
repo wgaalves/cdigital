@@ -119,7 +119,7 @@ log4j.main = {
 }
 rabbitmq {
     connection = {
-        connection name:"announce" ,host: "192.168.99.60", username: "user", password: "user"
+        connection name:"announce" ,host: "192.168.99.60", username: "guest", password: "guest" ,requestedHeartbeat: 5
     }
     queues = {
         // Assume there is a connection with the name "server1"…

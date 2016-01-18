@@ -15,6 +15,8 @@ class SaladeAulaController {
     @Secured(['ROLE_TEACHER','ROLE_ADMIN'])
     def createClassroom(){
 
+        def classroom = new Classroom()
+        session.setAttribute('session_classroom',classroom)
 
     }
 
