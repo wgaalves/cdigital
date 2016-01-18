@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/carteira.iml" filepath="$PROJECT_DIR$/carteira.iml" />
+      <module fileurl="file://$PROJECT_DIR$/carteira-grailsPlugins.iml" filepath="$PROJECT_DIR$/carteira-grailsPlugins.iml" />
+    </modules>
+  </component>
+</project>
