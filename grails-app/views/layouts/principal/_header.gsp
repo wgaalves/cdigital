@@ -12,8 +12,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">Chamada</a></li>
+                <li class="active"><a href="${createLink(controller:'saladeAula' , action: 'index')}">Home</a></li>
+                <li><a href="${createLink(controller:'chamada' , action: 'index')}">Chamada</a></li>
                 <li><a href="#contact">Minha Classe</a></li>
                 <li><a href="#about">Atividades  <span class="badge">12</span></a></li>
                 <li class="dropdown">
@@ -33,7 +33,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#contact">Suporte</a></li>
-                <li><a href="#contact">Encerrar Aula</a></li>
+                <li><a href="${createLink(controller: 'logout')}">Encerrar Aula</a></li>
             </ul>
 
 

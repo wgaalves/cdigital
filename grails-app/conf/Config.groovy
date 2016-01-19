@@ -114,8 +114,8 @@ log4j.main = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
-    debug 'grails.app.services.br.com.carteira'
-    debug 'grails.app.controllers.br.com.carteira'
+    debug 'grails.app.services.br.com.imaxgames.carteira'
+    debug 'grails.app.controllers.br.com.imaxgames.carteira'
 }
 rabbitmq {
     connection = {
@@ -127,18 +127,21 @@ rabbitmq {
     }
 }
 
+
+grails.plugin.springsecurity.logout.postOnly = false
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'User'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'UserRole'
-grails.plugin.springsecurity.authority.className = 'Role'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'br.com.imaxgames.carteira.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'br.com.imaxgames.carteira.UserRole'
+grails.plugin.springsecurity.authority.className = 'br.com.imaxgames.carteira.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                ['permitAll'],
-	'/index':           ['permitAll'],
-	'/index.gsp':       ['permitAll'],
+	'/index':           ['ROLE_TEACHER','ROLE_ADMIN'],
+	'/index.gsp':       ['ROLE_TEACHER','ROLE_ADMIN'],
 	'/assets/**':       ['permitAll'],
 	'/**/js/**':        ['permitAll'],
 	'/**/css/**':       ['permitAll'],
 	'/**/images/**':    ['permitAll'],
+    '/**/students/**':    ['permitAll'],
 	'/**/favicon.ico':  ['permitAll']
 ]
 

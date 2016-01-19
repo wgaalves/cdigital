@@ -7,16 +7,31 @@ class SaladeAulaController {
 
     @Secured(['ROLE_TEACHER','ROLE_ADMIN'])
     def index() {
-        def segmentList = Segment.findAll()
+        log.debug(params)
 
-        model: [segmentList:segmentList]
+        model:[teste:'teste']
+    }
+
+    @Secured(['ROLE_TEACHER','ROLE_ADMIN'])
+    def returnAllSegment(){
+        log.debug("returnAllSegment")
+        def segmentList = Segment.findAll()
+        def jsonSegments = []
+        log.debug(segmentList)
+        segmentList.each {
+            jsonSegments += ['id':it.id, 'segment':it.description]
+        }
+
+        render jsonSegments as JSON
     }
 
     @Secured(['ROLE_TEACHER','ROLE_ADMIN'])
     def createClassroom(){
 
-        def classroom = new Classroom()
+        def classroom = new Classroom(params).save(failOnError: true,flush: true)
         session.setAttribute('session_classroom',classroom)
+        session.setAttribute('studentsGroup',params.group)
+        redirect(controller: 'saladeAula',action: 'index')
 
     }
 
@@ -24,13 +39,13 @@ class SaladeAulaController {
 
     @Secured(['ROLE_TEACHER','ROLE_ADMIN'])
     def returnAllGradesBySegment(Long id){
-        def gradelist = Grade.findAllBySegment(Segment.get(id))
+        def gradelist = Grade.findAllBySegment(Segment.get(params.id))
         def jsonGrades = []
 
         gradelist.each {
             jsonGrades += ['id':it.id, 'grade':it.description]
         }
-
+        log.debug(jsonGrades)
         render jsonGrades as JSON
     }
 
@@ -52,7 +67,7 @@ class SaladeAulaController {
         def jsonDisciplines = []
 
         disciplineList.each {
-            jsonDisciplines += ['id':it.discipline.id, 'grade':it.discipline.name]
+            jsonDisciplines += ['id':it.discipline.id, 'discipline':it.discipline.name]
         }
 
         render jsonDisciplines as JSON

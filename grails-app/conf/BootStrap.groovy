@@ -11,7 +11,7 @@ import br.com.imaxgames.carteira.UserRole
 class BootStrap {
 
     def init = { servletContext ->
-
+/*
 
         def teacher = new Teacher(name: "Juvelina" ,username: "prof@carteiradigital", password: "senha").save(flush: true,failOnError: true)
         def teacherRole = Role.findByAuthority('ROLE_TEACHER') ?: new Role(authority: 'ROLE_TEACHER').save(failOnError: true)
@@ -76,20 +76,20 @@ class BootStrap {
 
         //Students
 
-        def student1 = new Student(studentsGroup: group,name: 'Juquinha',picture: "/students/picture/${group.id}/1.jpeg").save(flush: true,failOnError: true)
-        def student2 = new Student(studentsGroup: group,name: 'João',picture: "/students/picture/${group.id}/2.jpeg").save(flush: true,failOnError: true)
-        def student3 = new Student(studentsGroup: group,name: 'José',picture: "/students/picture/${group.id}/3.jpeg").save(flush: true,failOnError: true)
-        def student4 = new Student(studentsGroup: group,name: 'Rita',picture: "/students/picture/${group.id}/4.jpeg").save(flush: true,failOnError: true)
-        def student5 = new Student(studentsGroup: group,name: 'Jucelina',picture: "/students/picture/${group.id}/5.jpeg").save(flush: true,failOnError: true)
-        def student6 = new Student(studentsGroup: group,name: 'Marina',picture: "/students/picture/${group.id}/6.jpeg").save(flush: true,failOnError: true)
-        def student7 = new Student(studentsGroup: group,name: 'Lola',picture: "/students/picture/${group.id}/7.jpeg").save(flush: true,failOnError: true)
-        def student8 = new Student(studentsGroup: group,name: 'Ricardo',picture: "/students/picture/${group.id}/7.jpeg").save(flush: true,failOnError: true)
-        def student9 = new Student(studentsGroup: group,name: 'Bonaccio',picture: "/students/picture/${group.id}/7.jpeg").save(flush: true,failOnError: true)
-        def student10 = new Student(studentsGroup: group,name: 'Welton',picture: "/students/picture/${group.id}/7.jpeg").save(flush: true,failOnError: true)
-        def student11 = new Student(studentsGroup: group,name: 'Wendell',picture: "/students/picture/${group.id}/7.jpeg").save(flush: true,failOnError: true)
+        def student1 = new Student(studentsGroup: group,name: 'Juquinha',picture: "/students/picture/${group.id}/1.jpg").save(flush: true,failOnError: true)
+        def student2 = new Student(studentsGroup: group,name: 'João',picture: "/students/picture/${group.id}/2.jpg").save(flush: true,failOnError: true)
+        def student3 = new Student(studentsGroup: group,name: 'José',picture: "/students/picture/${group.id}/3.jpg").save(flush: true,failOnError: true)
+        def student4 = new Student(studentsGroup: group,name: 'Rita',picture: "/students/picture/${group.id}/4.jpg").save(flush: true,failOnError: true)
+        def student5 = new Student(studentsGroup: group,name: 'Jucelina',picture: "/students/picture/${group.id}/5.jpg").save(flush: true,failOnError: true)
+        def student6 = new Student(studentsGroup: group,name: 'Marina',picture: "/students/picture/${group.id}/6.jpg").save(flush: true,failOnError: true)
+        def student7 = new Student(studentsGroup: group,name: 'Lola',picture: "/students/picture/${group.id}/7.jpg").save(flush: true,failOnError: true)
+        def student8 = new Student(studentsGroup: group,name: 'Ricardo',picture: "/students/picture/${group.id}/8.jpg").save(flush: true,failOnError: true)
+        def student9 = new Student(studentsGroup: group,name: 'Bonaccio',picture: "/students/picture/${group.id}/9.jpg").save(flush: true,failOnError: true)
+        def student10 = new Student(studentsGroup: group,name: 'Welton',picture: "/students/picture/${group.id}/10.jpg").save(flush: true,failOnError: true)
+        def student11 = new Student(studentsGroup: group,name: 'Wendell',picture: "/students/picture/${group.id}/11.jpg").save(flush: true,failOnError: true)
 
 
-
+*/
 
     }
     def destroy = {

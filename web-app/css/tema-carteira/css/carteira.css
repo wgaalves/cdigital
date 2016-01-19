@@ -71,6 +71,14 @@
 .chamada .thumbnail {
 	min-height: 200px;
 	}
+.chamada .thumbnail:hover,
+.chamada .thumbnail:focus {
+  text-decoration: none;
+  filter: alpha(opacity=40);
+  outline: 0;
+  opacity: .4;
+  cursor:pointer;
+}
 .alunos-presentes .thumbnail {
 	background:#def3f6;
 	}
@@ -78,7 +86,27 @@
 	background:#e1e1e1;
 	}
 
+.panel-body .txtimg {
 
+    position:absolute;
+
+}
+ 
+.panel-body .txtimg {
+    position:absolute;
+}
+
+.panel-body .img-tablet {
+	z-index:5;
+    position:relative;
+}
+.panel-body .n-tablet {
+    z-index: 10;
+    position: absolute;
+    font-size: 22px;
+    padding: 30px 0 0 23px;
+    font-weight: 600;
+}
 
 
 

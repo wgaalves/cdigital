@@ -1,122 +1,117 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta name="layout" content="principal/main"/>
-		<title>Welcome to Grails</title>
-		<style type="text/css" media="screen">
-			#status {
-				background-color: #eee;
-				border: .2em solid #fff;
-				margin: 2em 2em 1em;
-				padding: 1em;
-				width: 12em;
-				float: left;
-				-moz-box-shadow: 0px 0px 1.25em #ccc;
-				-webkit-box-shadow: 0px 0px 1.25em #ccc;
-				box-shadow: 0px 0px 1.25em #ccc;
-				-moz-border-radius: 0.6em;
-				-webkit-border-radius: 0.6em;
-				border-radius: 0.6em;
-			}
+<meta name='layout' content='principal/login'/>
+<div class="container theme-showcase" role="main">
+	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 
-			.ie6 #status {
-				display: inline; /* float double margin fix http://www.positioniseverything.net/explorer/doubled-margin.html */
-			}
 
-			#status ul {
-				font-size: 0.9em;
-				list-style-type: none;
-				margin-bottom: 0.6em;
-				padding: 0;
-			}
+	<div class="page-header login-header">
+		<h1>Logo da Escola<span>Carteira Digital</span></h1>
+	</div>
+	<div class="wrapper turma-wrapper">
+		<div class="container-login">
 
-			#status li {
-				line-height: 1.3;
-			}
+			<g:form class="form-signin" controller="saladeAula" action="createClassroom" >
+				<h2 class="form-signin-heading">Escolha sua <br/>Turma e Disciplina</h2>
+				<h3 class="form-signin-heading">Sala de Aula</h3>
 
-			#status h1 {
-				text-transform: uppercase;
-				font-size: 1.1em;
-				margin: 0 0 0.3em;
-			}
+				<select class="form-control" name="segment" id="segment"  >
+					<option value="0" selected>Segmento</option>
+				</select>
+				<select class="form-control" name="grade" id="grade">
+					<option value="0" selected>Serie</option>
+				</select>
+				<select class="form-control" name="group" id="group">
+					<option value="0" selected>Turma</option>
+				</select>
+				<select class="form-control" name="discipline" id="discipline">
+					<option value="0" selected>Disciplina</option>
+				</select>
 
-			#page-body {
-				margin: 2em 1em 1.25em 18em;
-			}
+				<button class="btn btn-lg  btn-block" type="submit">Entrar</button>
+			</g:form>
 
-			h2 {
-				margin-top: 1em;
-				margin-bottom: 0.3em;
-				font-size: 1em;
-			}
-
-			p {
-				line-height: 1.5;
-				margin: 0.25em 0;
-			}
-
-			#controller-list ul {
-				list-style-position: inside;
-			}
-
-			#controller-list li {
-				line-height: 1.3;
-				list-style-position: inside;
-				margin: 0.25em 0;
-			}
-
-			@media screen and (max-width: 480px) {
-				#status {
-					display: none;
-				}
-
-				#page-body {
-					margin: 0 1em 1em;
-				}
-
-				#page-body h1 {
-					margin-top: 0;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div id="status" role="complementary">
-			<h1>Application Status</h1>
-			<ul>
-				<li>App version: <g:meta name="app.version"/></li>
-				<li>Grails version: <g:meta name="app.grails.version"/></li>
-				<li>Groovy version: ${GroovySystem.getVersion()}</li>
-				<li>JVM version: ${System.getProperty('java.version')}</li>
-				<li>Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</li>
-				<li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
-				<li>Domains: ${grailsApplication.domainClasses.size()}</li>
-				<li>Services: ${grailsApplication.serviceClasses.size()}</li>
-				<li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>
-			</ul>
-			<h1>Installed Plugins</h1>
-			<ul>
-				<g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-					<li>${plugin.name} - ${plugin.version}</li>
-				</g:each>
-			</ul>
 		</div>
-		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
-			<p>Congratulations, you have successfully started your first Grails application! At the moment
-			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
-			   content you may choose. Below is a list of controllers that are currently deployed in this application,
-			   click on each to execute its default action:</p>
 
-			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
-				<ul>
-					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-					</g:each>
-				</ul>
-			</div>
-		</div>
-	</body>
-</html>
+
+	</div>
+</div> <!-- /container -->
+
+<script>
+	$(document).ready(function() {
+		var url = "${createLink(controller:'saladeAula',action: 'returnAllSegment')} ";
+		$.ajax({
+			url: url,
+			type: 'POST',
+			success: function (result) {
+				var options = '';
+				$.each(result, function (key, value) {
+					options += '<option value=' + value.id + '>' + value.segment + '</option>';
+				});
+				$('#segment').append(options);
+			}
+		});
+
+
+	$('#segment').on('change',function(){
+		var urlGrade = "${createLink(controller:'saladeAula',action: 'returnAllGradesBySegment')} ";
+		$.ajax({
+			url: urlGrade,
+			data: {
+				'id': $('#segment').val(),
+			},
+			type: 'POST',
+			success: function (result) {
+				var options = '<option value="0" selected>Serie</option>';
+				$.each(result, function (key, value) {
+					options += '<option value=' + value.id + '>' + value.grade + '</option>';
+				});
+				$('#grade').find('option').remove();
+				$('#grade').append(options);
+			}
+		});
+
+
+	});
+
+	$('#grade').on('change',function(){
+		var urlGrade = "${createLink(controller:'saladeAula',action: 'returnAllGroupsByGrade')} ";
+		$.ajax({
+			url: urlGrade,
+			data: {
+				'id': $('#grade').val(),
+			},
+			type: 'POST',
+			success: function (result) {
+				var options = '<option value="0" selected>Turma</option>';
+				$.each(result, function (key, value) {
+
+					options += '<option value=' + value.id + '>' + value.group + '</option>';
+				});
+				$('#group').find('option').remove();
+				$('#group').append(options);
+			}
+		});
+
+
+	});
+	$('#grade').on('change',function(){
+		var urlGrade = "${createLink(controller:'saladeAula',action: 'returnDiscipline')} ";
+		$.ajax({
+			url: urlGrade,
+			data: {
+				'id': $('#grade').val(),
+			},
+			type: 'POST',
+			success: function (result) {
+				var options = '<option value="0" selected>Disciplina</option>';
+				$.each(result, function (key, value) {
+
+					options += '<option value=' + value.id + '>' + value.discipline + '</option>';
+				});
+				$('#discipline').find('option').remove();
+				$('#discipline').append(options);
+
+			}
+		});
+	});
+	});
+</script>

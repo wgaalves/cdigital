@@ -4,7 +4,7 @@ class Classroom {
 
     Segment segment
     Grade grade
-    StudentsGroup studentsGroup
+    StudentsGroup group
     Discipline discipline
     StudentCall studentcall
     Date dateCreated
