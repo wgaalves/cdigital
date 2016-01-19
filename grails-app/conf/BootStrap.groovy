@@ -12,7 +12,7 @@ class BootStrap {
 
     def init = { servletContext ->
 
-/*
+
         def teacher = new Teacher(name: "Juvelina" ,username: "prof@carteiradigital", password: "senha").save(flush: true,failOnError: true)
         def teacherRole = Role.findByAuthority('ROLE_TEACHER') ?: new Role(authority: 'ROLE_TEACHER').save(failOnError: true)
         def adminRole = Role.findByAuthority('ROLE_ADMIN') ?: new Role(authority: 'ROLE_ADMIN').save(failOnError: true)
@@ -89,7 +89,7 @@ class BootStrap {
         def student11 = new Student(studentsGroup: group,name: 'Wendell',picture: "/students/picture/${group.id}/7.jpeg").save(flush: true,failOnError: true)
 
 
-*/
+
 
     }
     def destroy = {

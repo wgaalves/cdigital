@@ -1,0 +1,91 @@
+
+
+
+.navbar-inverse {
+  background-image: -webkit-linear-gradient(top, #5487bb 0%, #023c77 100%);
+  background-image:      -o-linear-gradient(top, #5487bb 0%, #023c77 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#5487bb), to(#023c77));
+  background-image:         linear-gradient(to bottom, #5487bb 0%, #023c77 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5487bb', endColorstr='#ff023c77', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  background-repeat: repeat-x;
+  border-radius: 4px;
+}
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .active > a {
+  background-image: -webkit-linear-gradient(top, #023c77 0%, #1a528a 100%);
+  background-image:      -o-linear-gradient(top, #023c77 0%, #1a528a 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#023c77), to(#1a528a));
+  background-image:         linear-gradient(to bottom, #023c77 0%, #1a528a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff023c77', endColorstr='#ff1a528a', GradientType=0);
+  background-repeat: repeat-x;
+  -webkit-box-shadow: inset 0 3px 9px rgba(0, 0, 0, .25);
+          box-shadow: inset 0 3px 9px rgba(0, 0, 0, .25);
+}
+.navbar-inverse .navbar-brand {
+    color: #ddd;
+}
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #ddd;
+}
+.navbar-inverse .navbar-nav>li>a:hover{
+	color:#fff;
+  background-image: -webkit-linear-gradient(top, #023c77 0%, #1a528a 100%);
+  background-image:      -o-linear-gradient(top, #023c77 0%, #1a528a 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#023c77), to(#1a528a));
+  background-image:         linear-gradient(to bottom, #023c77 0%, #1a528a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff023c77', endColorstr='#ff1a528a', GradientType=0);
+  background-repeat: repeat-x;
+  -webkit-box-shadow: inset 0 3px 9px rgba(0, 0, 0, .25);
+          box-shadow: inset 0 3px 9px rgba(0, 0, 0, .25);
+}
+.navbar-inverse .navbar-nav>li>a>li{
+    color: #9d9d9d;
+}
+
+.navbar-inverse .navbar-nav .badge {
+    color: #1a528a;
+    background-color: #fff;
+	margin-left:3px;
+}
+
+.w100 {
+  width: 100%;
+  }
+
+.botao-home-acoes {
+  margin-bottom: 10px;
+  min-height: 130px;
+}
+
+.footer {
+    bottom: 0;
+    border-width: 0 0 1px;
+	background:#ccc;
+}
+
+.chamada .thumbnail {
+	min-height: 200px;
+	}
+.alunos-presentes .thumbnail {
+	background:#def3f6;
+	}
+.fundo_cinza {
+	background:#e1e1e1;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
