@@ -11,8 +11,8 @@ import br.com.imaxgames.carteira.UserRole
 class BootStrap {
 
     def init = { servletContext ->
-/*
 
+/*
         def teacher = new Teacher(name: "Juvelina" ,username: "prof@carteiradigital", password: "senha").save(flush: true,failOnError: true)
         def teacherRole = Role.findByAuthority('ROLE_TEACHER') ?: new Role(authority: 'ROLE_TEACHER').save(failOnError: true)
         def adminRole = Role.findByAuthority('ROLE_ADMIN') ?: new Role(authority: 'ROLE_ADMIN').save(failOnError: true)
@@ -88,6 +88,15 @@ class BootStrap {
         def student10 = new Student(studentsGroup: group,name: 'Welton',picture: "/students/picture/${group.id}/10.jpg").save(flush: true,failOnError: true)
         def student11 = new Student(studentsGroup: group,name: 'Wendell',picture: "/students/picture/${group.id}/11.jpg").save(flush: true,failOnError: true)
 
+
+        def student12 = new Student(studentsGroup: group2,name: 'Luis Henrique',picture: "/students/picture/${group2.id}/12.jpg").save(flush: true,failOnError: true)
+        def student13 = new Student(studentsGroup: group2,name: 'Ana Julia',picture: "/students/picture/${group2.id}/13.jpg").save(flush: true,failOnError: true)
+        def student14 = new Student(studentsGroup: group2,name: 'Lindelza',picture: "/students/picture/${group2.id}/14.jpg").save(flush: true,failOnError: true)
+        def student15 = new Student(studentsGroup: group2,name: 'Rita',picture: "/students/picture/${group2.id}/15.jpg").save(flush: true,failOnError: true)
+        def student16 = new Student(studentsGroup: group2,name: 'Mauricio',picture: "/students/picture/${group2.id}/16.jpg").save(flush: true,failOnError: true)
+        def student17 = new Student(studentsGroup: group2,name: 'Bruno',picture: "/students/picture/${group2.id}/17.jpg").save(flush: true,failOnError: true)
+        def student18 = new Student(studentsGroup: group2,name: 'Tereza',picture: "/students/picture/${group2.id}/18.jpg").save(flush: true,failOnError: true)
+        def student19 = new Student(studentsGroup: group2,name: 'Lindevaldo',picture: "/students/picture/${group2.id}/19.jpg").save(flush: true,failOnError: true)
 
 */
 

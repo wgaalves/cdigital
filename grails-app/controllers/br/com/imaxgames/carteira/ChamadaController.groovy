@@ -8,7 +8,7 @@ class ChamadaController {
  def springSecurityService
     def index(Long id){
         def sessao = RequestContextHolder.currentRequestAttributes().getSession()
-        log.debug(sessao.session_classroom)
+        log.debug(sessao.session_classroom.group)
         if ( sessao.session_classroom.group != null) {
 
             def students = Student.findAllByStudentsGroup(sessao.session_classroom.group)

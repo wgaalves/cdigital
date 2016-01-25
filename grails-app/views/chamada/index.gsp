@@ -30,17 +30,14 @@
                 <div class="panel-body fundo_cinza">
 
 
-<g:each in="${students}">
-    <div class="col-sm-2">
-        <div class="thumbnail">
-            <g:img uri="${it.picture}" alt="nome"/>
-            <div class="caption">
-                <h4>${it.name}</h4>
-            </div>
-        </div>
-    </div>
-</g:each>
-
+                    <g:each in="${students}">
+                        <div class="thumbnail col-sm-2">
+                            <g:img uri="${it.picture}" alt="nome"/>
+                            <div class="caption">
+                                <h4>${it.name}</h4>
+                            </div>
+                        </div>
+                    </g:each>
 
 
 
@@ -50,16 +47,13 @@
     </div> <!-- /.row -->
 
     <div class="row">
-        <div class="col-sm-3">
+        <div class="box-tablet">
             <div class="panel panel-primary text-center">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Tablet Chamando</h3>
+                    <h3 class="panel-title">Tablet Chamando <span class="badge" id="tabletsCount">0</span></h3>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body text-left tabletsGrid">
 
-                    <span class="n-tablet">000</span>
-
-                    <g:img  class="img-tablet" uri="/images/tablet.jpg" width="89" height="105" />
 
 
 
@@ -67,15 +61,12 @@
             </div>
         </div><!-- /.col-sm-3 -->
 
-        <div class="col-sm-9">
-            <div class="col-sm-6">
-                <h2>Tablet 1 de 1</h2>
-                <button type="button" class="btn btn-primary"><h4>Pular Tablet</h4></button>
-            </div>
-            <div class="col-sm-6">
-                <h2>&nbsp;</h2>
-                <button type="button" class="btn btn-primary disabled pull-right"><h4>Concluir Chamada</h4></button>
-            </div>
+        <div class="col-sm-2 text-center">
+
+
+            <p><button type="button" class="btn btn-primary "><h4>Pular<br/>Tablet</h4></button></p>
+            <p><button type="button" class="btn btn-primary disabled "><h4>Concluir<br/>Chamada</h4></button></p>
+
 
         </div><!-- /.col-sm-9 -->
     </div> <!-- /.row -->
@@ -90,3 +81,35 @@
 
 
 </div> <!-- /container -->
+
+
+<script>
+
+    $(document).ready(function(){
+        var url = 'http://localhost:8080/saladeaula/activeTablets.jsf';
+        setInterval(function(){
+        $.ajax({
+            url: url,
+            dataType: 'json'    ,
+            success: function(data) {
+                var html = ''
+                $.each(data, function(index,val){
+
+
+                         html += '<button type="button" value="'+ val.ip+'" class="btn  btn-tablet">'+ val.ip +'<br/><span class="badge">&nbsp;</span></button>';
+
+                })
+
+                $('.tabletsGrid').empty();
+                $('.tabletsGrid').append(html);
+                var  tabletsCount = parseInt($('.btn-tablet').length) ;
+                $('#tabletsCount').text(tabletsCount);
+            }
+        });
+        }, 5000);
+
+    });
+
+
+
+</script>
